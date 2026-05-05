@@ -2,10 +2,6 @@
 
 This is a production-ready Team Task Manager web application built from scratch with a modern MERN stack.
 
-## 🚀 Live Demo
-
-[Frontend URL] | [Backend API URL]
-
 ## Features list
 
 - User Authentication (Register, Login, Logout, Token Refresh, Profile)
