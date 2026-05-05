@@ -163,34 +163,3 @@ Follow these steps to set up the project locally:
 | Edit own / assigned task  |      ✅       |      ✅        |
 | Delete task               |      ✅       |  creator only  |
 | Assign task to others     |      ✅       |      ✅        |
-
-## Deploy to Railway (step-by-step)
-
-This project is configured for a monorepo deployment on Railway. Follow these steps:
-
-1.  **Push your code to GitHub:** Ensure your project is in a GitHub repository.
-2.  **Connect to Railway:** Log in to [Railway](https://railway.app/) and create a new project. Connect your GitHub repository.
-3.  **Configure Services:** Railway will detect the `railway.toml` file and suggest two services: `backend` and `frontend`.
-    -   **Backend Service:**
-        -   **Build Command:** `npm install`
-        -   **Start Command:** `node server.js`
-        -   **Environment Variables:** Set the following:
-            -   `MONGO_URI`: Your MongoDB Atlas connection string.
-            -   `JWT_SECRET`: Your JWT secret.
-            -   `JWT_REFRESH_SECRET`: Your JWT refresh secret.
-            -   `CLIENT_URL`: The URL of your deployed frontend (e.g., `https://your-frontend.railway.app`). Railway will provide this after the frontend is deployed.
-    -   **Frontend Service:**
-        -   **Build Command:** `npm install && npm run build`
-        -   **Start Command:** `npm run preview`
-        -   **Environment Variables:** Set the following:
-            -   `VITE_API_URL`: The URL of your deployed backend API (e.g., `https://your-backend.railway.app/api`). Railway will provide this after the backend is deployed.
-4.  **Deploy:** Trigger a deployment for both services. Ensure the backend deploys successfully first, then update the `VITE_API_URL` in the frontend service with the actual backend URL.
-
-## Test Credentials
-
--   **Admin User:**
-    -   Email: `admin@test.com`
-    -   Password: `Test@1234`
--   **Member User:**
-    -   Email: `member@test.com`
-    -   Password: `Test@1234`
