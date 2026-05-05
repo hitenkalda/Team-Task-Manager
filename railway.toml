@@ -1,0 +1,27 @@
+[build]
+builder = "NIXPACKS"
+
+[[deployments]]
+name = "backend"
+service = "backend"
+
+[deployments.build]
+buildCommand = "npm install"
+startCommand = "node server.js"
+
+[deployments.variables]
+MONGO_URI = "mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/<database-name>?retryWrites=true&w=majority"
+JWT_SECRET = "YOUR_VERY_STRONG_AND_LONG_JWT_SECRET"
+JWT_REFRESH_SECRET = "YOUR_VERY_STRONG_AND_LONG_JWT_REFRESH_SECRET"
+CLIENT_URL = "https://your-frontend.railway.app"
+
+[[deployments]]
+name = "frontend"
+service = "frontend"
+
+[deployments.build]
+buildCommand = "npm install && npm run build"
+startCommand = "npm run preview"
+
+[deployments.variables]
+VITE_API_URL = "https://your-backend.railway.app/api"
